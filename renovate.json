@@ -1,41 +1,9 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>renovatebot/.github"],
-    "assignees": ["rarkins", "viceice"],
-    "prCreation": "immediate",
-    "rebaseWhen": "conflicted",
-    "ignorePaths": ["**/node_modules/**", "**/__fixtures__/**", "test/**"],
-    "packageRules": [
-      {
-        "description": "set fix scope for base image",
-        "matchDepNames": ["ghcr.io/renovatebot/base-image"],
-        "semanticCommitType": "fix"
-      },
-      {
-        "description": "set feat scope for base image major",
-        "matchDepNames": ["ghcr.io/renovatebot/base-image"],
-        "matchUpdateTypes": ["major", "minor"],
-        "semanticCommitType": "feat"
-      }
-    ],
-    "customManagers": [
-      {
-        "customType": "regex",
-        "fileMatch": ["config/options/index.ts"],
-        "matchStrings": [
-          "default: '(?<depName>ghcr.io/containerbase/sidecar):(?<currentValue>.*)'"
-        ],
-        "datasourceTemplate": "docker"
-      }
-    ],
-    "regexManagers": [
-      {
-        "fileMatch": [".*"],
-        "matchStrings": [
-          ".*amiFilter=(?<packageName>.*?)\\n(.*currentImageName=(?<currentDigest>.*?)\\n)?(.*\\n)?.*?(?<depName>[a-zA-Z0-9-_:]*)[ ]*?[:|=][ ]*?[\"|']?(?<currentValue>ami-[a-z0-9]{17})[\"|']?.*"
-        ],
-        "datasourceTemplate": "aws-machine-image",
-        "versioningTemplate": "aws-machine-image"
-      }
-    ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "aws-machine-image": {
+    "enabled": true
   }
+}
