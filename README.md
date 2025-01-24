@@ -17,7 +17,7 @@ While running Renovate on an ARC Runner inside an EKS cluster in the GovCloud pa
 ### Context
 - GovCloud STS regional endpoints differ from those in the standard AWS commerical cloud. 
 - Reverting to version `36.0.0` of Renovate resolves the error but introduces a new issue where AMIs are not properly differentiated for `us-gov-west-1` and `us-gov-east-1`.
-- Version `39.131.0` fails iwth the error above.
+- Version `39.131.0` fails with the error above.
 
 ## Expected behavior
 
