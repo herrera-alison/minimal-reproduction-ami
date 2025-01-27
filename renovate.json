@@ -5,5 +5,15 @@
   ],
   "aws-machine-image": {
     "enabled": true
-  }
+  },
+    "regexManagers": [
+      {
+        "fileMatch": [".*"],
+        "matchStrings": [
+          ".*amiFilter=(?<packageName>.*?)\\n(.*currentImageName=(?<currentDigest>.*?)\\n)?(.*\\n)?.*?(?<depName>[a-zA-Z0-9-_:]*)[ ]*?[:|=][ ]*?[\"|']?(?<currentValue>ami-[a-z0-9]{17})[\"|']?.*"
+        ],
+        "datasourceTemplate": "aws-machine-image",
+        "versioningTemplate": "aws-machine-image"
+      }
+    ]
 }
