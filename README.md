@@ -18,6 +18,11 @@ While running Renovate on an ARC Runner inside an EKS cluster in the GovCloud pa
 - GovCloud STS regional endpoints differ from those in the standard AWS commerical cloud. 
 - Reverting to version `36.0.0` of Renovate resolves the error but introduces a new issue where AMIs are not properly differentiated for `us-gov-west-1` and `us-gov-east-1`.
 - Version `39.131.0` fails with the error above.
+- **Difficulty in Creating a Minimal Reproduction**: Recreating the issue as a minimal reproduction is challenging due to the following reasons:
+  - **Environment Specificity**: The issue occurs within an ARC Runner inside an EKS cluster in the GovCloud partition. This setup involves multiple AWS services and configurations that are not easily replicated in a simpler environment.
+  - **STS Regional Endpoints**: The problem is related to STS regional endpoints, which are specific to the GovCloud partition. Testing this in a non-GovCloud environment may not reproduce the same error.
+  - **Complex Dependencies**: The error involves multiple dependencies and versions of AWS SDK packages, which interact in a complex manner. Simplifying the setup may not capture the exact conditions that lead to the error.
+  - **Authentication and Permissions**: The issue is tied to OpenIDConnect provider configurations and permissions, which are specific to the account and environment.
 
 ## Expected behavior
 
