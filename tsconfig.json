@@ -6,7 +6,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "./hcl-to-json.d.ts"]
   },
-  "include": ["index.ts"]
+  "include": ["./**/*.ts"]
 }
